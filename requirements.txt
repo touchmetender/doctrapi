@@ -1,6 +1,5 @@
-flask
+fastapi
+uvicorn
+python-multipart
 pillow
-tensorflow
-tf2onnx
-git+https://github.com/mindee/doctr.git
-gunicorn
+doctr[torch]  # Use doctr[tensorflow] if needed
