@@ -1,6 +1,6 @@
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from doctr.models.ocr import ocr_predictor  # <--- import changed here
+from doctr.models.ocr import ocr_predictor
 from PIL import Image
 import io
 
