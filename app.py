@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from doctr.models import ocr_predictor
+from doctr.io import DocumentFile
 from PIL import Image
+
 import io
 
 app = Flask(__name__)
