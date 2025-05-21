@@ -2,4 +2,4 @@ fastapi
 uvicorn
 python-multipart
 pillow
-doctr[tf]==0.4.3
+doctr[tf]==1.9.0
