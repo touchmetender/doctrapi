@@ -1,4 +1,6 @@
 flask
 pillow
-git+https://github.com/mindee/doctr.git
 tensorflow
+tf2onnx
+git+https://github.com/mindee/doctr.git
+gunicorn
