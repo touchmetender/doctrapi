@@ -2,4 +2,4 @@ fastapi
 uvicorn
 python-multipart
 pillow
-doctr[tf]  # or doctr[torch] if you prefer PyTorch
+doctr[tf]==0.4.3
