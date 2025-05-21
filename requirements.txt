@@ -2,5 +2,5 @@ fastapi
 uvicorn
 python-multipart
 pillow
-doctr[tf]==1.9.0
+doctr[tf]
 tensorflow==2.13.0
