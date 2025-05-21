@@ -1,25 +1,18 @@
-from flask import Flask, request, jsonify
-from doctr.models import ocr_predictor
-from doctr.io import DocumentFile
+from fastapi import FastAPI, File, UploadFile
+from fastapi.responses import JSONResponse
+from doctr_model import get_text
 from PIL import Image
-
 import io
 
-app = Flask(__name__)
-model = ocr_predictor(pretrained=True)
+app = FastAPI()
 
-@app.route('/ocr', methods=['POST'])
-def ocr():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file provided'}), 400
-    
-    file = request.files['file']
-    img = Image.open(file.stream).convert('RGB')
-    
-    result = model(img)
-    text = "\n".join([block.text for block in result.pages[0].blocks])
-    
-    return jsonify({'text': text})
+@app.get("/")
+def root():
+    return {"message": "Doctr OCR API is running."}
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+@app.post("/ocr/")
+async def ocr_endpoint(file: UploadFile = File(...)):
+    image_bytes = await file.read()
+    image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    text = get_text(image)
+    return JSONResponse(content={"text": text})
