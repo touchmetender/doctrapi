@@ -3,3 +3,4 @@ uvicorn
 python-multipart
 pillow
 doctr[tf]==1.9.0
+tensorflow==2.13.0
